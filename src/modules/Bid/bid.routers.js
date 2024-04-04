@@ -7,4 +7,6 @@ BidRouter.post("/", BidController.createBid);
 
 BidRouter.get("/", BidController.getBids);
 
+BidRouter.get("/:productId", BidController.getBidByProductId);
+
 export default BidRouter;

@@ -23,3 +23,12 @@ export async function getBids() {
   const bids = await Bid.find();
   return bids;
 }
+
+export async function getBidByProductId(productId) {
+  let bids = await getBids();
+  bids = bids.filter((x) => x.product == productId);
+  if (bids.length == 0) {
+    throw new Error("Bids not found");
+  }
+  return bids;
+}
