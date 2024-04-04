@@ -5,3 +5,8 @@ export async function createProduct(body) {
   await newProduct.save();
   return newProduct;
 }
+
+export async function getProducts() {
+  const products = Product.find().populate("seller");
+  return products;
+}
