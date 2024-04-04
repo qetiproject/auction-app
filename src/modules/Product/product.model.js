@@ -11,22 +11,24 @@ const ProductSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-  //   bids: [
-  //     {
-  //       type: mongoose.Schema.Types.ObjectId,
-  //       ref: "Bid",
-  //       required: true,
-  //     },
-  //   ],
+
   sold: {
     type: Boolean,
-    required: true,
+    default: false,
+    required: false,
   },
   seller: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
     required: true,
   },
+  bids: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Bid",
+      required: false,
+    },
+  ],
 });
 
 ProductSchema.post("save", { document: true }, async function (doc, next) {
