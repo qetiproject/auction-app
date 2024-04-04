@@ -13,14 +13,15 @@ export async function getUsers() {
 
 export async function getUserById(userId) {
   const user = User.findById(userId);
+  if (!user) {
+    throw new Error("User not found");
+  }
   return user;
 }
 
 export async function deleteUserById(userId) {
   const user = await getUserById(userId);
-  if (!user) {
-    throw new Error("User not found");
-  }
+
   await user.deleteOne();
   return user;
 }

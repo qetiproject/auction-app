@@ -9,13 +9,13 @@ const UserSchema = new mongoose.Schema({
   //       required: true,
   //     },
   //   ],
-  //   sellProducts: [
-  //     {
-  //       type: mongoose.Schema.Types.ObjectId,
-  //       ref: "Product",
-  //       required: true,
-  //     },
-  //   ],
+  sellProducts: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Product",
+      required: true,
+    },
+  ],
   role: ["bidder", "seller"],
 });
 
