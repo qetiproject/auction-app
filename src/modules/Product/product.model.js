@@ -18,10 +18,10 @@ const ProductSchema = new mongoose.Schema({
   //       required: true,
   //     },
   //   ],
-  //   sold: {
-  //     type: Boolean,
-  //     required: true,
-  //   },
+  sold: {
+    type: Boolean,
+    required: true,
+  },
   seller: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "User",
