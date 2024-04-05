@@ -26,9 +26,10 @@ class ProductController {
   async deleteProductById(req, res) {
     try {
       const product = await deleteProductById(req.params.productId);
+      console.log(req.params.productId);
       res.status(200).json(product);
     } catch (error) {
-      res.status(500).json({ message: error.message });
+      res.status(500).json({ error: error.message });
     }
   }
 }

@@ -7,12 +7,15 @@ export async function createProduct(body) {
 }
 
 export async function getProducts() {
-  const products = Product.find().populate("seller");
+  const products = Product.find();
   return products;
 }
 
 export async function deleteProductById(productId) {
   const product = await Product.findById(productId);
+  if (!product) {
+    throw new Error("Product not found");
+  }
   await product.deleteOne();
   return product;
 }

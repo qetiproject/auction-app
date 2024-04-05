@@ -9,4 +9,6 @@ BidRouter.get("/", BidController.getBids);
 
 BidRouter.get("/:productId", BidController.getBidByProductId);
 
+BidRouter.delete("/:bidId", BidController.deleteBidById);
+
 export default BidRouter;

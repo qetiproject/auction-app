@@ -32,3 +32,9 @@ export async function getBidByProductId(productId) {
   }
   return bids;
 }
+
+export async function deleteBidById(bidId) {
+  const bid = await Bid.findById(bidId);
+  await bid.deleteOne();
+  return bid;
+}

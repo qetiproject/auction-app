@@ -1,4 +1,9 @@
-import { getBids, createBid, getBidByProductId } from "./bid.services.js";
+import {
+  getBids,
+  createBid,
+  getBidByProductId,
+  deleteBidById,
+} from "./bid.services.js";
 
 class BidController {
   async createBid(req, res) {
@@ -25,6 +30,15 @@ class BidController {
       res.status(200).json(bid);
     } catch (error) {
       res.status(500).json({ message: error.message });
+    }
+  }
+
+  async deleteBidById(req, res) {
+    try {
+      const bid = await deleteBidById(req.params.bidId);
+      res.status(200).json(bid);
+    } catch (error) {
+      res.status(500).json({ error: error.message });
     }
   }
 }
