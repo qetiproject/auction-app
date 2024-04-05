@@ -9,4 +9,6 @@ ProductRouter.get("/", ProductController.getProducts);
 
 ProductRouter.delete("/:productId", ProductController.deleteProductById);
 
+ProductRouter.put("/", ProductController.soldProduct);
+
 export default ProductRouter;
